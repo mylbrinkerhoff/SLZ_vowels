@@ -3,7 +3,19 @@
 # Project:
 # Author: Mykel Brinkerhoff
 # Date: 2026-02-01 (Su)
-# Description: What does this script do?
+# Description: 
+#   - Checks if z-scored f0 is greater than 3 st. dev. from mean
+#     and removes them if so. This is required by central limit
+#     theory which states that most data lies within 3sd of mean.
+#   - determines which rows are considered outliers based on the 
+#     Mahalanobis distance of the vowel based on F1 and F2. 
+#     Keeps only 95% of the vowels (See Ahn 2025 for a 
+#     discussion about outliers) based on this Mahalanobis 
+#     distance.
+#   - converts Energy values of 0 to NA and then takes the log10
+#     transformation to remove the right tail and to see if 
+#     distribution is normally distributed. 
+#   - removes all energy values that are NA
 #
 # Usage:
 #   Rscript 004_outlierRemoval.R
@@ -13,7 +25,7 @@
 #   - Modify the script as needed for your specific dataset and analysis requirements.
 #----------------------------------------------------------------------------------------
 
-# Remove outliers by F0
+### Remove outliers by F0
 zapotec_clean <- zapotec_vowels |>
   dplyr::mutate(
     F0z = (F0 - mean(F0, na.rm = T)) / sd(F0, na.rm = T),

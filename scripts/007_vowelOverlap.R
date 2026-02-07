@@ -3,7 +3,17 @@
 # Project:
 # Author: Mykel Brinkerhoff
 # Date: 2026-02-01 (Su)
-# Description: What does this script do?
+# Description: 
+#   - Splits the dataframe based on whether the speaker variable
+#     was male or female (incoded as F# and M#)
+#   - Extracts u and o for each dataframe. (Could do this first 
+#     before splitting by gender; this would require a small 
+#     modification in the script). 
+#   - calculates the overlap using the function `overlap` 
+#     defined in overlap.R in /scripts/functions/ folder
+#   - Overlap calculated with Pillai and Bhattacharyya with raw 
+#     Hz and ∆F (No major difference found between using Raw Hz 
+#     and ∆F).
 #
 # Usage:
 #   Rscript 007_vowelOverlap.R
@@ -20,19 +30,20 @@ df_f <- zpq_norm |>
 df_m <- zpq_norm |>
   dplyr::filter(stringr::str_detect(speaker, 'm'))
 
-# All speakers
+# All speakers' u and o 
 u_o <- zpq_norm |>
   dplyr::filter(vowel %in% c("u", "o"))
 
-# male speakers
+# male speakers u and o
 male_u_o <- df_m |>
   dplyr::filter(vowel %in% c("u", "o"))
 
-# female speakers
+# female speakers u and o
 female_u_o <- df_f |>
   dplyr::filter(vowel %in% c("u", "o"))
 
 # Overlap based on Hz
+# all speakers
 u_overlap <- u_o |>
   dplyr::summarise(
     pillai = overlap(F1, F2, vowel = vowel, method = "pillai"),
@@ -40,6 +51,7 @@ u_overlap <- u_o |>
   )
 u_overlap
 
+# male speakers
 male_overlap <- male_u_o |>
   dplyr::summarise(
     pillai = overlap(F1, F2, vowel = vowel, method = "pillai"),
@@ -47,6 +59,7 @@ male_overlap <- male_u_o |>
   )
 male_overlap
 
+# female speakers
 female_overlap <- female_u_o |>
   dplyr::summarise(
     pillai = overlap(F1, F2, vowel = vowel, method = "pillai"),

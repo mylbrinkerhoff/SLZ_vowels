@@ -3,7 +3,10 @@
 # Project:
 # Author: Mykel Brinkerhoff
 # Date: 2026-02-01 (Su)
-# Description: What does this script do?
+# Description: 
+#   - Normalize the vowels by speaker using Nearey, ∆F, and Bark
+#   - Calculates the centroid of each vowel based on HZ, Nearey, 
+#     ∆F, and Bark
 #
 # Usage:
 #   Rscript 005_vowelNormalization.R
@@ -13,6 +16,7 @@
 #   - Modify the script as needed for your specific dataset and analysis requirements.
 #-----------------------------------------------------------
 
+### Vowel normalizations
 zpq_norm <- zpq |>
   tidynorm::norm_nearey(
     F1:F4,
@@ -27,6 +31,8 @@ zpq_norm <- zpq |>
     .by = speaker
   )
 
+### Locating the centroids of each vowel in raw Hz, and each 
+### normalization
 zpq_means <- zpq_norm |>
   dplyr::summarise(
     F1 = mean(F1),

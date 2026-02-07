@@ -3,7 +3,10 @@
 # Project:
 # Author: Mykel Brinkerhoff
 # Date: 2026-02-01 (Su)
-# Description: What does this script do?
+# Description: 
+#   - Plots vowel space based on raw Hz and each normalization
+#   - Each vowel is plotted as a point and there is a 1sd elipsis
+#     around each centroid
 #
 # Usage:
 #   Rscript 006_vowelPlotting.R

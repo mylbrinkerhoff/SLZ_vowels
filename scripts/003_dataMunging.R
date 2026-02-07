@@ -1,9 +1,15 @@
-#----------------------------------------------------------------------------------------
+#----------------------------------------------------------------
 # File: 003_dataMunging.R
 # Project:
 # Author: Mykel Brinkerhoff
 # Date: 2026-02-01 (Su)
-# Description: What does this script do?
+# Description: 
+#   - Takes the vowel dataset and renames "laryngealized" 
+#     phonation as "rearticulated"
+#   - Selects only the needed columns from the VoiceSauce output
+#   - Renames the selected columns to make analysis and plotting 
+#     easier
+#   - factorizes categorical columns
 #
 # Usage:
 #   Rscript 003_dataMunging.R
@@ -11,9 +17,9 @@
 # Notes:
 #   - Ensure all required packages are installed.
 #   - Modify the script as needed for your specific dataset and analysis requirements.
-#----------------------------------------------------------------------------------------
+#----------------------------------------------------------------
 
-#
+### 
 zapotec_vowels <- zapotec |>
   dplyr::mutate(
     idnum = dplyr::row_number(),
