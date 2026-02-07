@@ -3,7 +3,7 @@
 # Project:
 # Author: Mykel Brinkerhoff
 # Date: 2026-02-01 (Su)
-# Description: 
+# Description:
 #   - Plots vowel space based on raw Hz and each normalization
 #   - Each vowel is plotted as a point and there is a 1sd elipsis
 #     around each centroid
@@ -85,7 +85,7 @@ zpq_norm |>
   ggokabeito::scale_color_okabe_ito() +
   ggokabeito::scale_fill_okabe_ito() +
   ggplot2::labs(
-    title = "SLZ Bark Differenc Normalized Vowels ",
+    title = "SLZ Bark Difference Normalized Vowels ",
     x = "F2 (bark)",
     y = "F1 (bark)"
   ) +

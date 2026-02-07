@@ -33,10 +33,12 @@
 renv::restore()
 
 ### Load helper packages
-library(tidyverse) # for data manipulation, graphic, and data wrangling
-library(viridis) # for colorblind friendly colors in ggplot
+library(dplyr) # for data manipulation, graphic, and data wrangling
+library(readr) # loading in data
+library(stringr) # look for stuff in strings
+library(ggplot2) # for plotting
 library(here) # for creating pathways relative to the top-level directory
-library(remotes) # allows accessing github
+# library(remotes) # allows accessing github
 library(joeyr) # needed for the find_outliers function
 library(ggokabeito) # colorblind friendly color based on Okabe-Ito scheme
 library(adehabitatHR) # needed for Bhattacharyya's Affinity calculation

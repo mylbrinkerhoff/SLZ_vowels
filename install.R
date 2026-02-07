@@ -1,5 +1,5 @@
-install.packages('renv', repos = c(CRAN = 'https://cloud.r-project.org'))
+# install.packages('renv', repos = c(CRAN = 'https://cloud.r-project.org'))
 
-library(renv)
+# library(renv)
 
-renv::restore()
+# renv::restore()
