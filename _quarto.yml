@@ -1,5 +1,16 @@
 project:
   title: "SLZ_Vowels"
 
+manuscript: 
+  article: output/reports/SLZ_Vowels.qmd
+  code-links: binder
+  
+execute: 
+  echo: false
+  warning: false
+  
+bibliography: output/bibliography/references.bib
+csl: output/bibliography/unified-style-sheet-for-linguistics.csl
+
 
 

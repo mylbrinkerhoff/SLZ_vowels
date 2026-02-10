@@ -1,7 +1,69 @@
 ---
-title: "SLZ_Vowels"
+title: "Investigating a vowel shift in progress in Santiago Laxopa Zapotec"
+date: last-modified
+author: 
+    - name: 
+        given: Mykel Loren 
+        family: Brinkerhoff
+      id: mlb
+      orcid: 0000-0002-2190-6544
+      email: mlbrinke@uw.edu
+      affiliation:
+        - name: University of Washington
+          city: Seattle
+          state: WA
+          url: www.uw.edu
+abstract: |
+    This article investigates a vowel shift in progress in Santiago Laxopa Zapotec's vowel system. Evidence from Pillai Scores and Bhattacharyya's Afinity show that the Sierra Norte Zapotec vowel /o/ is rising to /u/. Male speakers of Santiago Laxopa Zapotec have the largest divergence between [o] and [u] productions.   
+keywords: 
+    - Vowel Shift
+    - Vowel overlap
+    - Zapotec 
+license: "CC BY"
+copyright: 
+    holder: Mykel Loren Brinkerhoff
+    year: 2026
+format: 
+    pdf: 
+        toc: true
+        number-sections: true
+        highlight-style: github
+        fontenc: utf-8
+        mainfont: "Libertinus Serif"
+        sansfont: "Libertinus Sans"
 ---
 
-## Quarto
+## Introduction
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+### Vowel splits, mergers, and shifts
+
+#### Previous reseach about splits, mergers, and shifts
+
+#### Quantification through Pillai Scores and Bhattacharyya's Affinity
+
+### Santiago Laxopa Zapotec
+
+#### Previous vowel research
+
+## Methods
+
+### Data collection
+
+### Data processing
+
+## Analysis
+
+## Results
+
+### Vowel space
+
+### Vowel overlap
+
+### Vowel shift
+
+## Conclusions
+
+## Refernces
+
+:::{#refs}
+:::
