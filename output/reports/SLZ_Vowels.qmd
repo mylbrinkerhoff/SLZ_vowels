@@ -27,11 +27,19 @@ format:
     pdf: 
         toc: true
         number-sections: true
+        linestretch: 2
         highlight-style: github
         fontenc: utf-8
         mainfont: "Libertinus Serif"
         sansfont: "Libertinus Sans"
 ---
+
+```{r}
+source(here::here(
+    "scripts",
+    "001_startHere.R")
+ )
+```
 
 ## Introduction
 
@@ -43,11 +51,15 @@ format:
 
 ### Santiago Laxopa Zapotec
 
+Santiago Laxopa Zapotec (SLZ; endonym _Dille'xhunh Laxup_) is an Sierra Norte Zapotec variety spoken by approximately 1000 speakers in the pueblo of Santiago Laxopa [@brinkerhoffUsingResidualH12025,@brinkerhoffVoiceQualityLaryngeal2025]. Most work 
+
 #### Previous vowel research
 
 ## Methods
 
 ### Data collection
+
+Data was collected in the summer 2022 by myself and a fellow researcher in the pueblo of Santiago Laxopa, Ixtlán, Oaxaca, Mexico. Ten native speaker participants (five female; five male) performed a word list elicitation task consisting of 72 items repeated three times in isolation and three times in the carrier sentence _Shnia' X chonhe lhas_ [ʃnːiaˀ X tʃone ɾas] "I say X three times." Recordings were made using a Zoom H4n handheld recorder (16-bit, 44.5 kHz).
 
 ### Data processing
 
