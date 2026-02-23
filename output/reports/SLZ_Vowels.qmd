@@ -32,6 +32,8 @@ format:
         fontenc: utf-8
         mainfont: "Libertinus Serif"
         sansfont: "Libertinus Sans"
+        cite-method: biblatex
+        biblatexoptions: backend=biber, style=unified, maxcitenames=3, maxbibnames=99, natbib, url=false
 ---
 
 ```{r}
@@ -51,9 +53,10 @@ source(here::here(
 
 ### Santiago Laxopa Zapotec
 
-Santiago Laxopa Zapotec (SLZ; endonym _Dille'xhunh Laxup_) is an Sierra Norte Zapotec variety spoken by approximately 1000 speakers in the pueblo of Santiago Laxopa [@brinkerhoffUsingResidualH12025,@brinkerhoffVoiceQualityLaryngeal2025]. Most work 
+Santiago Laxopa Zapotec (SLZ; endonym _Dille'xhunh Laxup_) is an Sierra Norte Zapotec variety and belongs to the Zoogochan Dialect group [@smith-starkAlgunasIsoglosasZapotecas2007]. SLZ is spoken by approximately 1000 speakers in the pueblo of Santiago Laxopa [@brinkerhoffVoiceQualityLaryngeal2025;@brinkerhoffUsingResidualH12025]. Most previous research has focused on the semantics and syntax of the language [see @adlerDerivationVerbInitiality2018; @sichelPronounsAttractionSierra2020;
+@sichelFeaturalLifeNominals2025;@silva-roblesElicitingAssociatedMotion2022].
 
-#### Previous vowel research
+Typologically, members of the Zoogochan Zapotec varieties typically have a four-vowel system consisting of the vowels / i, e, a, o / [see ] 
 
 ## Methods
 
