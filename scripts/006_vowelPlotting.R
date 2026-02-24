@@ -1,6 +1,6 @@
 #----------------------------------------------------------------------------------------
 # File: 006_vowelPlotting.R
-# Project:
+# Project: VowelShift
 # Author: Mykel Brinkerhoff
 # Date: 2026-02-01 (Su)
 # Description:

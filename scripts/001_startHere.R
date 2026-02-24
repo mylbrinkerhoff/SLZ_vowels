@@ -1,6 +1,6 @@
 #------------------------------------------------------------------
 # File: 001_startHere.R
-# Project:
+# Project: VowelShift
 # Author: Mykel Brinkerhoff
 # Date: 2026-01-31 (Sa)
 # Description: Loads in the required packages.
@@ -34,8 +34,10 @@
 
 ### Load helper packages
 library(dplyr) # for data manipulation, graphic, and data wrangling
+library(tidyr) # for data manipulation
 library(readr) # loading in data
 library(stringr) # look for stuff in strings
+library(reshape2) # for data manipulation
 library(ggplot2) # for plotting
 library(here) # for creating pathways relative to the top-level directory
 # library(remotes) # allows accessing github
@@ -43,6 +45,7 @@ library(joeyr) # needed for the find_outliers function
 library(ggokabeito) # colorblind friendly color based on Okabe-Ito scheme
 library(adehabitatHR) # needed for Bhattacharyya's Affinity calculation
 library(sp) # needed for Bhattacharyya's Affinity calculation
+
 
 ### Load vowel specific packages
 library(tidynorm) # package for vowel normalization

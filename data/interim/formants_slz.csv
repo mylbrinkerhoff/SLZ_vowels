@@ -1,4 +1,4 @@
-"idnum","measurement.no","Speaker","Word","Iter","Vowel","Phonation","Tone","Duration","F0","F1","F2","F3","F4","Energy"
+"idnum","percent","Speaker","Word","Iter","Vowel","Phonation","Tone","Duration","F0","F1","F2","F3","F4","Energy"
 1,"01","f3","bahl",1,"a","breathy","F",146,226.806,668.992,1398.693,2644.487,3611.825,0.272
 1,"02","f3","bahl",1,"a","breathy","F",146,214.834,674.967,1489.565,2609.161,3677.979,0.282
 1,"03","f3","bahl",1,"a","breathy","F",146,202.504,919.207,1635.749,2588.017,3683.83,0.234

@@ -1,11 +1,11 @@
 #-----------------------------------------------------------
 # File: 005_vowelNormalization.R
-# Project:
+# Project: VowelShift
 # Author: Mykel Brinkerhoff
 # Date: 2026-02-01 (Su)
-# Description: 
+# Description:
 #   - Normalize the vowels by speaker using Nearey, ∆F, and Bark
-#   - Calculates the centroid of each vowel based on HZ, Nearey, 
+#   - Calculates the centroid of each vowel based on HZ, Nearey,
 #     ∆F, and Bark
 #
 # Usage:
@@ -31,7 +31,7 @@ zpq_norm <- zpq |>
     .by = speaker
   )
 
-### Locating the centroids of each vowel in raw Hz, and each 
+### Locating the centroids of each vowel in raw Hz, and each
 ### normalization
 zpq_means <- zpq_norm |>
   dplyr::summarise(

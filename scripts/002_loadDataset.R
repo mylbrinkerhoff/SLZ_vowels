@@ -1,9 +1,9 @@
 #----------------------------------------------------------------
 # File: 002_loadDataset.R
-# Project:
+# Project: VowelShift
 # Author: Mykel Brinkerhoff
 # Date: 2026-01-31 (Sa)
-# Description: Loads in the vowel dataset for Santaigo Laxopa 
+# Description: Loads in the vowel dataset for Santaigo Laxopa
 # Zapotec
 #
 # Usage:

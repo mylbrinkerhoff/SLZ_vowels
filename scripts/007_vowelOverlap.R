@@ -1,18 +1,18 @@
 #----------------------------------------------------------------------------------------
 # File: 007_vowelOverlap.R
-# Project:
+# Project: VowelShift
 # Author: Mykel Brinkerhoff
 # Date: 2026-02-01 (Su)
-# Description: 
+# Description:
 #   - Splits the dataframe based on whether the speaker variable
 #     was male or female (incoded as F# and M#)
-#   - Extracts u and o for each dataframe. (Could do this first 
-#     before splitting by gender; this would require a small 
-#     modification in the script). 
-#   - calculates the overlap using the function `overlap` 
+#   - Extracts u and o for each dataframe. (Could do this first
+#     before splitting by gender; this would require a small
+#     modification in the script).
+#   - calculates the overlap using the function `overlap`
 #     defined in overlap.R in /scripts/functions/ folder
-#   - Overlap calculated with Pillai and Bhattacharyya with raw 
-#     Hz and ∆F (No major difference found between using Raw Hz 
+#   - Overlap calculated with Pillai and Bhattacharyya with raw
+#     Hz and ∆F (No major difference found between using Raw Hz
 #     and ∆F).
 #
 # Usage:
@@ -30,7 +30,7 @@ df_f <- zpq_norm |>
 df_m <- zpq_norm |>
   dplyr::filter(stringr::str_detect(speaker, 'm'))
 
-# All speakers' u and o 
+# All speakers' u and o
 u_o <- zpq_norm |>
   dplyr::filter(vowel %in% c("u", "o"))
 

@@ -1,6 +1,6 @@
 #----------------------------------------------------------------------------------------
 # File: 01_dataShaping.R
-# Project:
+# Project: VowelShift
 # Author: Mykel Brinkerhoff
 # Date: 2026-02-23 (M)
 # Description:
@@ -64,7 +64,7 @@ slz_strF0_trans <- reshape2::melt(
   )
 )
 
-slz_strF0_trans$measurement.no <- stringr::str_sub(
+slz_strF0_trans$percent <- stringr::str_sub(
   slz_strF0_trans$variable,
   -2,
   -1
@@ -91,7 +91,7 @@ slz_sF1 <- slz |>
 
 slz_sF1_trans <- reshape2::melt(slz_sF1, id = c("idnum"))
 
-slz_sF1_trans$measurement.no <- stringr::str_sub(slz_sF1_trans$variable, -2, -1)
+slz_sF1_trans$percent <- stringr::str_sub(slz_sF1_trans$variable, -2, -1)
 
 slz_sF1_trans <- slz_sF1_trans |>
   dplyr::rename(F1 = value) |>
@@ -115,7 +115,7 @@ slz_sF2 <- slz |>
 
 slz_sF2_trans <- reshape2::melt(slz_sF2, id = c("idnum"))
 
-slz_sF2_trans$measurement.no <- stringr::str_sub(slz_sF2_trans$variable, -2, -1)
+slz_sF2_trans$percent <- stringr::str_sub(slz_sF2_trans$variable, -2, -1)
 
 slz_sF2_trans <- slz_sF2_trans |>
   dplyr::rename(F2 = value) |>
@@ -139,7 +139,7 @@ slz_sF3 <- slz |>
 
 slz_sF3_trans <- reshape2::melt(slz_sF3, id = c("idnum"))
 
-slz_sF3_trans$measurement.no <- stringr::str_sub(slz_sF3_trans$variable, -2, -1)
+slz_sF3_trans$percent <- stringr::str_sub(slz_sF3_trans$variable, -2, -1)
 
 slz_sF3_trans <- slz_sF3_trans |>
   dplyr::rename(F3 = value) |>
@@ -163,7 +163,7 @@ slz_sF4 <- slz |>
 
 slz_sF4_trans <- reshape2::melt(slz_sF4, id = c("idnum"))
 
-slz_sF4_trans$measurement.no <- stringr::str_sub(slz_sF4_trans$variable, -2, -1)
+slz_sF4_trans$percent <- stringr::str_sub(slz_sF4_trans$variable, -2, -1)
 
 slz_sF4_trans <- slz_sF4_trans |>
   dplyr::rename(F4 = value) |>
@@ -187,7 +187,7 @@ slz_energy <- slz |>
 
 slz_energy_trans <- reshape2::melt(slz_energy, id = c("idnum"))
 
-slz_energy_trans$measurement.no <- stringr::str_sub(
+slz_energy_trans$percent <- stringr::str_sub(
   slz_energy_trans$variable,
   -2,
   -1
@@ -207,7 +207,7 @@ slz_trans <- list(
   slz_sF4_trans,
   slz_energy_trans
 ) |>
-  reduce(merge, by = c("idnum", "measurement.no"))
+  reduce(merge, by = c("idnum", "percent"))
 
 # Saving the file
 write.csv(
@@ -216,3 +216,58 @@ write.csv(
   row.names = F,
   fileEncoding = "UTF-8"
 )
+
+### Another method
+
+zapotec_js <- zapotec |>
+  dplyr::mutate(
+    idnum = dplyr::row_number(),
+    Phonation = dplyr::recode(Phonation, "laryngealized" = "rearticulated")
+  ) |>
+  dplyr::select(
+    c(
+      Speaker,
+      Word,
+      Iter,
+      Vowel,
+      Phonation,
+      Tone,
+      Duration,
+      idnum,
+      sF1_means001,
+      sF1_means002,
+      sF1_means003,
+      sF1_means004,
+      sF1_means005,
+      sF1_means006,
+      sF1_means007,
+      sF1_means008,
+      sF1_means009,
+      sF1_means010,
+      sF2_means001,
+      sF2_means002,
+      sF2_means003,
+      sF2_means004,
+      sF2_means005,
+      sF2_means006,
+      sF2_means007,
+      sF2_means008,
+      sF2_means009,
+      sF2_means010
+    )
+  ) |>
+  tidyr::pivot_longer(
+    cols = tidyr::starts_with("sF"),
+    names_to = "formant_percent",
+    values_to = "Hz"
+  ) |>
+  tidyr::separate_wider_delim(
+    formant_percent,
+    delim = "_",
+    names = c("formant", "percent")
+  ) |>
+  dplyr::mutate(
+    percent = as.numeric(stringr::str_remove(percent, "means")) * 10,
+    formant = stringr::str_remove(formant, "s")
+  ) |>
+  tidyr::unite(formant_id, formant, Vowel, sep = "_", remove = F)

@@ -1,6 +1,6 @@
 #----------------------------------------------------------------------------------------
 # File: 004_vowelNormalize.R
-# Project:
+# Project: VowelShift
 # Author: Mykel Brinkerhoff
 # Date: 2026-01-31 (Sa)
 # Description: calculate different normalizations
