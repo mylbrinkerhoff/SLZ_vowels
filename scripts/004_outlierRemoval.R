@@ -25,11 +25,11 @@
 #   - Modify the script as needed for your specific dataset and analysis requirements.
 #----------------------------------------------------------------------------------------
 
-### Remove outliers by F0
+### Remove outliers by F0 keep 99.93% of the tokens
 zapotec_clean <- zapotec_vowels |>
   dplyr::mutate(
     F0z = (F0 - mean(F0, na.rm = T)) / sd(F0, na.rm = T),
-    .by = speaker
+    .by = c("speaker", "tone")
   ) |>
   dplyr::mutate(
     F0_outlier = dplyr::if_else(abs(F0z) > 3, "outlier", "OK"),
@@ -38,11 +38,11 @@ zapotec_clean <- zapotec_vowels |>
     F0_outlier == "OK"
   )
 
-# Remove outliers by formants
+# Remove outliers by formants keep 95% based on mahalanobis distance
 zapotec_clean <- zapotec_clean |>
   dplyr::mutate(
     is_outlier = joeyr::find_outliers(F1, F2, keep = 0.95),
-    .by = c("vowel"),
+    .by = c("speaker"),
   ) |>
   dplyr::filter(
     !is_outlier
@@ -50,11 +50,11 @@ zapotec_clean <- zapotec_clean |>
 
 
 # Remove outliers by energy
-zapotec_clean$energy[zapotec_clean$energy == 0] <- NA
+zapotec_clean$Energy[zapotec_clean$Energy == 0] <- NA
 
 zapotec_energy <- zapotec_clean |>
   dplyr::mutate(
-    log_energy = log10(energy)
+    log_energy = log10(Energy)
   ) |>
   dplyr::filter(
     !is.na(log_energy)

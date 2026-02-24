@@ -39,6 +39,7 @@ zpq_norm |>
     x = "F2 (Hz)",
     y = "F1 (Hz)"
   ) +
+  ggplot2::facet_wrap(~speaker) +
   ggplot2::theme_bw()
 
 # Vowels in Nearey
