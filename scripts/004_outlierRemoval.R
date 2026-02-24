@@ -1,20 +1,20 @@
 #----------------------------------------------------------------------------------------
 # File: 004_outlierRemoval.R
-# Project:
+# Project: VowelShift
 # Author: Mykel Brinkerhoff
 # Date: 2026-02-01 (Su)
-# Description: 
+# Description:
 #   - Checks if z-scored f0 is greater than 3 st. dev. from mean
 #     and removes them if so. This is required by central limit
 #     theory which states that most data lies within 3sd of mean.
-#   - determines which rows are considered outliers based on the 
-#     Mahalanobis distance of the vowel based on F1 and F2. 
-#     Keeps only 95% of the vowels (See Ahn 2025 for a 
-#     discussion about outliers) based on this Mahalanobis 
+#   - determines which rows are considered outliers based on the
+#     Mahalanobis distance of the vowel based on F1 and F2.
+#     Keeps only 95% of the vowels (See Ahn 2025 for a
+#     discussion about outliers) based on this Mahalanobis
 #     distance.
 #   - converts Energy values of 0 to NA and then takes the log10
-#     transformation to remove the right tail and to see if 
-#     distribution is normally distributed. 
+#     transformation to remove the right tail and to see if
+#     distribution is normally distributed.
 #   - removes all energy values that are NA
 #
 # Usage:
