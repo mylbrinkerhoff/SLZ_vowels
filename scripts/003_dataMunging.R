@@ -25,6 +25,7 @@ zapotec_vowels <- zapotec |>
   dplyr::filter(Phonation == "modal") |> # Filter on modal
   dplyr::mutate(
     # take the middle portion of the vowel for the measures
+    gender = stringr::str_sub(Speaker, 1, 1),
     F0 = (strF0_means004 + strF0_means005 + strF0_means006 + strF0_means007) /
       4,
     F1 = (sF1_means004 + sF1_means005 + sF1_means006 + sF1_means007) / 4,
@@ -40,6 +41,7 @@ zapotec_vowels <- zapotec |>
   dplyr::select(
     # Select only the following columns
     Speaker,
+    gender,
     Vowel,
     Phonation,
     Tone,

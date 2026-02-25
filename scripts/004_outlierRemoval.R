@@ -42,7 +42,7 @@ zapotec_clean <- zapotec_vowels |>
 zapotec_clean <- zapotec_clean |>
   dplyr::mutate(
     is_outlier = joeyr::find_outliers(F1, F2, keep = 0.95),
-    .by = c("speaker"),
+    .by = c("gender", "speaker"),
   ) |>
   dplyr::filter(
     !is_outlier

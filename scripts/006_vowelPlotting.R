@@ -39,7 +39,7 @@ zpq_norm |>
     x = "F2 (Hz)",
     y = "F1 (Hz)"
   ) +
-  ggplot2::facet_wrap(~speaker) +
+  ggplot2::facet_wrap(~gender) +
   ggplot2::theme_bw()
 
 # Vowels in Nearey
@@ -65,6 +65,7 @@ zpq_norm |>
     x = "F2 (nearey)",
     y = "F1 (nearey)"
   ) +
+  ggplot2::facet_grid(. ~ gender) +
   ggplot2::theme_bw()
 
 # Vowels in bark
@@ -90,6 +91,7 @@ zpq_norm |>
     x = "F2 (bark)",
     y = "F1 (bark)"
   ) +
+  ggplot2::facet_grid(. ~ gender) +
   ggplot2::theme_bw()
 
 # Vowels in ∆F
@@ -115,4 +117,5 @@ zpq_norm |>
     x = "F2 (∆F)",
     y = "F1 (∆F)"
   ) +
+  ggplot2::facet_grid(. ~ gender) +
   ggplot2::theme_bw()

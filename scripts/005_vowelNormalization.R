@@ -20,15 +20,15 @@
 zpq_norm <- zpq |>
   tidynorm::norm_nearey(
     F1:F4,
-    .by = speaker
+    .by = c("gender", "speaker")
   ) |>
   tidynorm::norm_deltaF(
     F1:F4,
-    .by = speaker
+    .by = c("gender", "speaker")
   ) |>
   tidynorm::norm_barkz(
     F1:F4,
-    .by = speaker
+    .by = c("gender", "speaker")
   )
 
 ### Locating the centroids of each vowel in raw Hz, and each
@@ -43,5 +43,5 @@ zpq_means <- zpq_norm |>
     F2_bz = mean(F2_bz),
     F1_df = mean(F1_df),
     F2_df = mean(F2_df),
-    .by = vowel
+    .by = c("gender", "vowel")
   )
