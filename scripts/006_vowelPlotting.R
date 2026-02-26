@@ -29,7 +29,7 @@ zpq_norm |>
     level = 0.67,
     linewidth = 1
   ) +
-  ggplot2::geom_label(data = zpq_means, colour = "black") +
+  # ggplot2::geom_label(data = zpq_means, colour = "black") +
   ggplot2::scale_x_reverse(position = "top") +
   ggplot2::scale_y_reverse(position = "right") +
   ggokabeito::scale_color_okabe_ito() +
@@ -39,7 +39,7 @@ zpq_norm |>
     x = "F2 (Hz)",
     y = "F1 (Hz)"
   ) +
-  ggplot2::facet_wrap(~gender) +
+  ggplot2::facet_wrap(~speaker) +
   ggplot2::theme_bw()
 
 # Vowels in Nearey

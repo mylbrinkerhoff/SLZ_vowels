@@ -43,5 +43,5 @@ zpq_means <- zpq_norm |>
     F2_bz = mean(F2_bz),
     F1_df = mean(F1_df),
     F2_df = mean(F2_df),
-    .by = c("gender", "vowel")
+    .by = c("speaker", "gender", "vowel")
   )

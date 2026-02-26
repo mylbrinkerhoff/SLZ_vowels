@@ -209,6 +209,61 @@ slz_trans <- list(
 ) |>
   reduce(merge, by = c("idnum", "measurement.no"))
 
+### Another method
+
+zapotec_js <- zapotec |>
+  dplyr::mutate(
+    idnum = dplyr::row_number(),
+    Phonation = dplyr::recode(Phonation, "laryngealized" = "rearticulated")
+  ) |>
+  dplyr::select(
+    c(
+      Speaker,
+      Word,
+      Iter,
+      Vowel,
+      Phonation,
+      Tone,
+      Duration,
+      idnum,
+      sF1_means001,
+      sF1_means002,
+      sF1_means003,
+      sF1_means004,
+      sF1_means005,
+      sF1_means006,
+      sF1_means007,
+      sF1_means008,
+      sF1_means009,
+      sF1_means010,
+      sF2_means001,
+      sF2_means002,
+      sF2_means003,
+      sF2_means004,
+      sF2_means005,
+      sF2_means006,
+      sF2_means007,
+      sF2_means008,
+      sF2_means009,
+      sF2_means010
+    )
+  ) |>
+  tidyr::pivot_longer(
+    cols = tidyr::starts_with("sF"),
+    names_to = "formant_percent",
+    values_to = "Hz"
+  ) |>
+  tidyr::separate_wider_delim(
+    formant_percent,
+    delim = "_",
+    names = c("formant", "percent")
+  ) |>
+  dplyr::mutate(
+    percent = as.numeric(stringr::str_remove(percent, "means")) * 10,
+    formant = stringr::str_remove(formant, "s")
+  ) |>
+  tidyr::unite(formant_id, formant, Vowel, sep = "_", remove = F)
+
 # Saving the file
 write.csv(
   slz_trans,
